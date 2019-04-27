@@ -36,10 +36,13 @@ ActiveRecord::Schema.define(version: 2019_04_27_005829) do
 
   create_table "trains", force: :cascade do |t|
     t.string "number"
+    t.bigint "railway_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "railway_station_id"
     t.index ["railway_station_id"], name: "index_trains_on_railway_station_id"
   end
 
+  add_foreign_key "railway_stations_routes", "railway_stations"
+  add_foreign_key "railway_stations_routes", "routes"
+  add_foreign_key "trains", "railway_stations"
 end
