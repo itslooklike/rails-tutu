@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_234627) do
+ActiveRecord::Schema.define(version: 2019_04_27_002609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_04_26_234627) do
     t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "current_station_id"
+    t.index ["current_station_id"], name: "index_trains_on_current_station_id"
   end
 
 end
