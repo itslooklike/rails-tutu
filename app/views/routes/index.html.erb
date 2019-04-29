@@ -6,8 +6,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
       <th>Stations List</th>
+      <th>Trains List</th>
     </tr>
   </thead>
 
@@ -19,6 +20,7 @@
         <td><%= link_to 'Edit', edit_route_path(route) %></td>
         <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= (route.railway_stations.map {|rs| rs.title}).join(' -> ') if route.railway_stations %></td>
+        <td><%= (route.trains.map {|rs| rs.number}).join(' -> ') if route.trains %></td>
       </tr>
     <% end %>
   </tbody>
