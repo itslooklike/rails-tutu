@@ -12,5 +12,12 @@
   </p>
 <% end %>
 
+<% if @train.route %>
+  <p>
+    <strong>Current Route:</strong>
+    <%= @train.route.name %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

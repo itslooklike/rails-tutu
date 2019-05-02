@@ -5,5 +5,12 @@
   <%= @route.name %>
 </p>
 
+<% if @route.railway_stations %>
+  <p>
+    <strong>Railway Stations:</strong>
+    <%= (@route.railway_stations.map {|rs| rs.title}).join(', ') %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

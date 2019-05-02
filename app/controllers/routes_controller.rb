@@ -2,7 +2,7 @@ class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   def index
-    @routes = Route.all
+    @routes = Route.all.order('created_at DESC')
   end
 
   def new
@@ -10,6 +10,7 @@ class RoutesController < ApplicationController
   end
 
   def edit
+
   end
 
   def show
@@ -23,6 +24,24 @@ class RoutesController < ApplicationController
         @route.railway_stations << RailwayStation.find(station_id)
       end
     end
+
+    if @route.save
+      redirect_to @route, notice: 'Route was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  def update
+    stations = []
+
+    params[:route][:railway_stations_ids].each do |station_id|
+      unless station_id.empty?
+        stations << RailwayStation.find(station_id)
+      end
+    end
+
+    @route.railway_stations = stations
 
     if @route.save
       redirect_to @route, notice: 'Route was successfully created.'

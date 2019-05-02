@@ -2,7 +2,7 @@ class TrainsController < ApplicationController
   before_action :set_train, only: [:show, :edit, :update, :destroy]
 
   def index
-    @trains = Train.all
+    @trains = Train.all.order('created_at DESC')
   end
 
   def show
@@ -45,6 +45,6 @@ class TrainsController < ApplicationController
   end
 
   def train_params
-    params.require(:train).permit(:number, :railway_station_id)
+    params.require(:train).permit(:number, :railway_station_id, :route_id)
   end
 end
