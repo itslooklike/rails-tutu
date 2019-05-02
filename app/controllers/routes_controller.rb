@@ -9,11 +9,20 @@ class RoutesController < ApplicationController
     @route = Route.new
   end
 
+  def edit
+  end
+
   def show
   end
 
   def create
     @route = Route.new route_params
+
+    params[:route][:railway_stations_ids].each do |station_id|
+      unless station_id.empty?
+        @route.railway_stations << RailwayStation.find(station_id)
+      end
+    end
 
     if @route.save
       redirect_to @route, notice: 'Route was successfully created.'
@@ -34,6 +43,6 @@ class RoutesController < ApplicationController
   end
 
   def route_params
-    params.require(:route).permit(:name, :railway_station_id)
+    params.require(:route).permit(:name)
   end
 end

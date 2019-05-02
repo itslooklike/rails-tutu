@@ -9,7 +9,7 @@
 
   <div class="field">
     <%= form.label :railway_stations %>
-    <%= form.collection_select(:railway_station_id, RailwayStation.all, :id, :title, { prompt: "Please Select a Sector" }, { multiple: true }) %>
+    <%= form.collection_select(:railway_stations_ids, RailwayStation.all, :id, :title, {}, { multiple: true }) %>
   </div>
 
   <div class="actions">
