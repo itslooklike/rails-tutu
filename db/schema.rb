@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_083411) do
+ActiveRecord::Schema.define(version: 2019_05_03_213059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2019_04_29_083411) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tikets", force: :cascade do |t|
+    t.bigint "train_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["train_id"], name: "index_tikets_on_train_id"
+    t.index ["user_id"], name: "index_tikets_on_user_id"
+  end
+
   create_table "trains", force: :cascade do |t|
     t.string "number"
     t.bigint "railway_station_id"
@@ -44,8 +53,17 @@ ActiveRecord::Schema.define(version: 2019_04_29_083411) do
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "railway_stations_routes", "railway_stations"
   add_foreign_key "railway_stations_routes", "routes"
+  add_foreign_key "tikets", "trains"
+  add_foreign_key "tikets", "users"
   add_foreign_key "trains", "railway_stations"
   add_foreign_key "trains", "routes"
 end
