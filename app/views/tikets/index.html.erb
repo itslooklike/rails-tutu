@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tikets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Train</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tikets.each do |tiket| %>
+      <tr>
+        <td><%= tiket.train %></td>
+        <td><%= tiket.user %></td>
+        <td><%= link_to 'Show', tiket %></td>
+        <td><%= link_to 'Edit', edit_tiket_path(tiket) %></td>
+        <td><%= link_to 'Destroy', tiket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tiket', new_tiket_path %>

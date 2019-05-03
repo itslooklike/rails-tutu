@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Train:</strong>
+  <%= @tiket.train %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tiket.user %>
+</p>
+
+<%= link_to 'Edit', edit_tiket_path(@tiket) %> |
+<%= link_to 'Back', tikets_path %>
