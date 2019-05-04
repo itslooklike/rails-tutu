@@ -17,8 +17,8 @@
     <% @tikets.each do |tiket| %>
       <tr>
         <td><%= tiket.train.number %></td>
-        <td><%= tiket.train.route.railway_stations.first if tiket.train.route %></td>
-        <td><%= tiket.train.route.railway_stations.last if tiket.train.route %></td>
+        <td><%= tiket.train.route.railway_stations.first.title if tiket.train.route %></td>
+        <td><%= tiket.train.route.railway_stations.last.title if tiket.train.route %></td>
         <td><%= tiket.user.first_name %></td>
         <td><%= link_to 'Show', tiket %></td>
         <td><%= link_to 'Edit', edit_tiket_path(tiket) %></td>
