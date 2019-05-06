@@ -1,0 +1,2 @@
+class WagonType < ApplicationRecord
+end

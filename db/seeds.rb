@@ -29,3 +29,6 @@ routes.each { |item| Route.create(name: item) }
   { first_name: 'Bill', last_name: 'Murray' },
   { first_name: 'Jessica', last_name: 'Simpson' }
 ].each { |item| User.create(item) }
+
+# Wagon
+['platskard', 'coupe'].each { |item| WagonType.create(name: item) }
