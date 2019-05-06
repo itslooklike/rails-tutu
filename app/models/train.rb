@@ -3,4 +3,5 @@ class Train < ApplicationRecord
   belongs_to :railway_station, optional: true
   belongs_to :route, optional: true
   has_many :tikets
+  has_many :wagons
 end
