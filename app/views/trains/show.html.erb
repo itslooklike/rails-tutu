@@ -19,5 +19,21 @@
   </p>
 <% end %>
 
+<% if @train.wagons %>
+  <p><strong>Wagons:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Top Seats</th>
+        <th>Bottom Seats</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render 'wagon', wagons: @train.wagons %>
+    </tbody>
+  </table>
+<% end %>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

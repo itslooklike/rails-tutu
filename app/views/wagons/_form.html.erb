@@ -1,0 +1,28 @@
+<%= form_with(model: wagon, local: true) do |form| %>
+
+  <%= render 'common/errors', resource: wagon %>
+
+  <div class="field">
+    <%= form.label :train %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wagon_type %>
+    <%= form.collection_select :wagon_type_id, WagonType.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seats_top %>
+    <%= form.number_field :seats_top %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seats_bottom %>
+    <%= form.number_field :seats_bottom %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

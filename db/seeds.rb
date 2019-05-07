@@ -35,3 +35,4 @@ routes.each { |item| Route.create(name: item) }
 
 # Wagon
 Wagon.create(train: Train.first, wagon_type: WagonType.first, seats_top: 3, seats_bottom: 3)
+Wagon.create(train: Train.first, wagon_type: WagonType.last, seats_top: 2, seats_bottom: 2)
